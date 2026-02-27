@@ -51,6 +51,12 @@ function addNumberButtonHandlers() {
         }
         if (target.classList.contains("number-button")) {
 
+            if (target.id === "decimal") {
+                if (display.includes(".")) {
+                    return;
+                }
+            }
+
             if (activeNumber === "first") {
                 console.log(activeNumber);
 
