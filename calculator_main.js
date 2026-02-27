@@ -32,7 +32,7 @@ function updateDisplay(displayString) {
     while (displayRegion.firstChild != null) {
         displayRegion.firstChild.remove();
     }
-     displayRegion.appendChild(newDisplayText);
+    displayRegion.appendChild(newDisplayText);
 }
 // Logic and Events
 
