@@ -149,7 +149,7 @@ function addFunctionButtonHandlers() {
                 return;
             }
             if (
-                result > 9999999999999999
+                result > 999999999999999999999
             ) {
                 console.log(result);
                 clearAllStorage();
