@@ -143,6 +143,14 @@ function addFunctionButtonHandlers() {
                 updateDisplay("");
                 return;
             }
+            if (
+                result > 9999999999999999
+            ) {
+                console.log(result);
+                clearAllStorage();
+                updateDisplay("inf");
+                return;
+            }
             updateDisplay(result);
 
             firstNumber = result;
@@ -168,6 +176,14 @@ function runCurrentOperation() {
         if (result == "div 0 error" || result == "internal error") {
             clearAllStorage();
             updateDisplay("");
+            return;
+        }
+        if (
+            result > 999999999
+        ) {
+            console.log(result);
+            clearAllStorage();
+            updateDisplay("inf");
             return;
         }
         updateDisplay(result);
