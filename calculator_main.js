@@ -1,6 +1,7 @@
 // Memory
 
 let display = "";
+let displayItem = ""
 
 let firstNumber = "";
 let secondNumber = "";
@@ -44,7 +45,8 @@ function addNumberButtonHandlers() {
 
     buttonRegion.addEventListener("click", (event) => {
         let target = event.target;
-        if (display.length >= 10) {
+        if (display.length >= 10 && 
+            ((displayItem === "first" && operator === "") || displayItem === "second")) {
             return;
         }
         if (target.classList.contains("number-button")) {
@@ -59,6 +61,7 @@ function addNumberButtonHandlers() {
                 firstNumber += target.textContent;
                 display = firstNumber;
                 updateDisplay(display);
+                displayItem = "first";
                 clearCache();
 
             } else if (activeNumber === "second") {
@@ -66,6 +69,7 @@ function addNumberButtonHandlers() {
                 secondNumber += target.textContent;
                 display = secondNumber;
                 updateDisplay(secondNumber);
+                displayItem = "second";
                 clearCache();
             }
         }
@@ -141,9 +145,11 @@ function addFunctionButtonHandlers() {
             if (result == "div 0 error" || result == "internal error") {
                 clearAllStorage();
                 updateDisplay("");
+                displayItem = "";
                 return;
             }
             updateDisplay(result);
+            displayItem = "result";
 
             firstNumber = result;
             copyMemoryToCache();
@@ -158,6 +164,7 @@ function addFunctionButtonHandlers() {
     allClearButton.addEventListener("click", () => {
         clearAllStorage();
         updateDisplay("");
+        displayItem = "";
         activeNumber = "first";
     })
 }
@@ -168,9 +175,11 @@ function runCurrentOperation() {
         if (result == "div 0 error" || result == "internal error") {
             clearAllStorage();
             updateDisplay("");
+            displayItem = "";
             return;
         }
         updateDisplay(result);
+        displayItem = "result";
 
         firstNumber = result;
         copyMemoryToCache();
