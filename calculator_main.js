@@ -141,7 +141,7 @@ function addFunctionButtonHandlers() {
         if (cacheIsFull()) {
             copyCacheToMemory();
             clearCache();
-            let result = operate(firstNumber, secondNumber, operator);
+            let result = operate(firstNumber, secondNumber, operator).toFixed(4);
             if (result == "div 0 error" || result == "internal error") {
                 clearAllStorage();
                 updateDisplay("");
@@ -179,7 +179,7 @@ function addFunctionButtonHandlers() {
 
 function runCurrentOperation() {
     if (memoryIsFull()) {
-        let result = operate(firstNumber, secondNumber, operator);
+        let result = operate(firstNumber, secondNumber, operator).toFixed(4);
         if (result == "div 0 error" || result == "internal error") {
             clearAllStorage();
             updateDisplay("");
@@ -187,7 +187,7 @@ function runCurrentOperation() {
             return;
         }
         if (
-            result > 999999999
+            result > 9999999999999999
         ) {
             console.log(result);
             clearAllStorage();
@@ -207,8 +207,8 @@ function runCurrentOperation() {
 // Utils
 
 function operate(a, b, op) {
-    a = Number.parseInt(a);
-    b = Number.parseInt(b);
+    a = Number.parseFloat(a);
+    b = Number.parseFloat(b);
     if (op === "+") {
         return add(a, b);
     } else if (op === "-") {
