@@ -44,9 +44,9 @@ function addNumberButtonHandlers() {
 
     buttonRegion.addEventListener("click", (event) => {
         let target = event.target;
-        if (display.length >= 10) {
-            return;
-        }
+        // if (display.length >= 10) {
+        //     return;
+        // }
         if (target.classList.contains("number-button")) {
 
             if (activeNumber === "first") {
