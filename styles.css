@@ -1,19 +1,37 @@
-.body {
+.main-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.calculator {
     display: flex;
     flex-direction: column;
-    width: 50vw;
-    height: 50vh;
+    flex-shrink: 1;
 }
 
 #result-display {
     text-align: right;
+    min-height: 6vh;
+    border: 1px solid black;
+    font-size: 20px;
 }
 
 .buttons-wrapper {
     display: flex;
     flex-direction: row;
+    border: 1px solid black;
 }
 
-.number-buttons {
+.number-buttons-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.operator-buttons-wrapper {
+    display: grid;
+}
+
+.function-buttons-wrapper {
     display: grid;
 }
