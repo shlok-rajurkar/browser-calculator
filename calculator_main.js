@@ -147,7 +147,7 @@ function addFunctionButtonHandlers() {
         if (cacheIsFull()) {
             copyCacheToMemory();
             clearCache();
-            let result = operate(firstNumber, secondNumber, operator).toFixed(4);
+            let result = operate(firstNumber, secondNumber, operator);
             if (result == "div 0 error" || result == "internal error") {
                 clearAllStorage();
                 updateDisplay("");
@@ -185,7 +185,7 @@ function addFunctionButtonHandlers() {
 
 function runCurrentOperation() {
     if (memoryIsFull()) {
-        let result = operate(firstNumber, secondNumber, operator).toFixed(4);
+        let result = operate(firstNumber, secondNumber, operator);
         if (result == "div 0 error" || result == "internal error") {
             clearAllStorage();
             updateDisplay("");
